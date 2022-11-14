@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #202124;
+  font-family: "Euclid Circular A";
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  height: 100%;
+  background: #0f0f0f;
+  transition: width 0.4s;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding: 0 1.25rem 0 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .sidebar-header button {
+  width: 64px;
+}
+
+.sidebar-logo {
+  height: 20px;
+}
+
+.sidebar-nav {
+  flex: 1 1 auto;
+}
+
+.sidebar h2 {
+  padding-left: 26px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar button {
+  position: relative;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0 25px;
+  color: #d4d4ea;
+}
+
+.sidebar button span:nth-child(2) {
+  flex: 1 1 auto;
+}
+
+.sidebar button.active {
+  background: #6a28cb;
+}
+
+.sub-nav {
+  overflow: hidden;
+  height: 0;
+  transition: 0.5s;
+}
+
+.sub-nav.open {
+  height: 200px;
+}
+
+.sub-nav button {
+  padding-left: 72px;
+}
+
+.sub-nav button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 36px;
+  translate: 0 -50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #d4d4ea;
+}
+
+.material-symbols-outlined {
+  font-size: 22px;
+}
