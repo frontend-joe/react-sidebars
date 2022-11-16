@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #202124;
+  font-family: "Euclid Circular A";
+}
+
+.sidebar button {
+  position: relative;
+  overflow: hidden;
+  height: 50px;
+  width: 100%;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 400;
+  padding: 0 22px;
+  color: #d4d4ea;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+  height: 100%;
+  background: #000000;
+  translate: -100% 0;
+  transition: 0.3s;
+}
+
+.sidebar.open {
+  translate: 0 0;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding: 0 1.25rem 0 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header button {
+  width: 64px;
+}
+
+.sidebar-logo {
+  height: 20px;
+}
+
+.button-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+@keyframes active {
+  0%,
+  30% {
+    background: transparent;
+  }
+  80%,
+  100% {
+    background: #2f2d32;
+  }
+}
+
+.sidebar button.active {
+  animation: active 1s forwards;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 40%);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.overlay.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 0;
+    scale: 0.5;
+  }
+  35% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    scale: 5;
+  }
+}
+
+.ripple-shape {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 80px;
+  height: 80px;
+  margin-top: -40px;
+  margin-left: -40px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  background: #2f2d32;
+  animation: ripple 1s both;
+}
