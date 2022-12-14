@@ -1,0 +1,230 @@
+body {
+  background: #1b192d !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --tab-width: 260px;
+}
+
+body {
+  margin: 0;
+  background: #2a262c;
+  font-family: "Euclid Circular A";
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--tab-width);
+  height: 100%;
+  background: #0a0910;
+  transition: width 0.4s;
+}
+
+.sidebar > div {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 72px;
+  border-bottom: 1px solid rgb(225 225 225 / 10%);
+  margin-bottom: 16px;
+}
+
+.sidebar .sidebar-header button {
+  flex: 1 1 auto;
+  display: grid;
+  place-items: center;
+  opacity: 0.5;
+}
+
+.sidebar button .material-symbols-outlined {
+  color: #e0e0e0;
+}
+
+.sidebar .sidebar-header button.active {
+  opacity: 1;
+}
+
+header .underline {
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 33.33%;
+  height: 4px;
+  border-radius: 2px;
+  background: #ff5bab;
+  transition: 0.3s;
+}
+
+.sidebar button {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 0 25px;
+  color: #f9f9f9;
+}
+
+.material-symbols-outlined {
+  font-size: 22px;
+}
+
+.tabs {
+  flex: 1 1 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.tabs > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+  display: flex;
+  opacity: 0;
+  width: 100%;
+  visibility: hidden;
+  translate: 0 20px;
+  transition: 0.3s;
+}
+
+.tabs > div.active {
+  opacity: 1;
+  visibility: visible;
+  translate: 0;
+}
+
+.tabs > div > div {
+  display: grid;
+  width: 100%;
+}
+
+form button,
+form input {
+  border: 0;
+  padding: 12px 0;
+  height: 60px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+form {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  padding: 16px 16px;
+  display: grid;
+  gap: 16px;
+  width: 100%;
+}
+
+.textbox {
+  position: relative;
+}
+
+.textbox span {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  left: 16px;
+  font-size: 20px;
+  pointer-events: none;
+  color: rgb(255 255 255 / 40%);
+}
+
+.textbox input {
+  padding: 0 24px 0 46px;
+  border-radius: 6px;
+  border: 2px solid rgb(225 225 225 / 10%);
+  color: rgb(255 255 255 / 96%);
+  height: 50px;
+  width: 190px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.switch-label {
+  font-size: 14px;
+  color: rgb(225 225 225 / 60%);
+}
+
+.switch {
+  display: inline-block;
+}
+
+.switch input {
+  display: none;
+}
+
+.switch label {
+  display: block;
+  width: 40px;
+  height: 20px;
+  padding: 2px;
+  border-radius: 15px;
+  border: 2px solid #7e8382;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.switch label::after {
+  content: "";
+  display: inherit;
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  background: #7e8382;
+  transition: 0.3s;
+}
+
+.switch input:checked ~ label {
+  border-color: #ff5bab;
+}
+
+.switch input:checked ~ label::after {
+  translate: 20px 0;
+  background: #ff5bab;
+}
+
+.switch input:disabled ~ label {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.switch.square label,
+.switch.square label::after {
+  border-radius: 0;
+}
