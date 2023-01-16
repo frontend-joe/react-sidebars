@@ -1,0 +1,149 @@
+body {
+  background: #131417 !important;
+  font-family: "Lato", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  font-size: 16px;
+  color: #f9f9f9;
+}
+
+@keyframes border {
+  100% {
+    translate: 0 8px;
+  }
+}
+
+.sidebar,
+.sidebar-border {
+  transition: 0.4s;
+}
+
+.sidebar {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 190px;
+  height: 100%;
+  translate: -190px 0;
+  box-shadow: 2px 0 5px rgb(0 0 0 / 20%);
+}
+
+.sidebar-border {
+  position: fixed;
+  top: -10px;
+  left: 0;
+  width: 12px;
+  height: calc(100% + 20px);
+  background: repeating-linear-gradient(
+    45deg,
+    #3d414b 0px 3px,
+    #22252b 3px 6px
+  );
+  animation: border 0.25s infinite linear;
+  animation-play-state: paused;
+}
+
+.sidebar-border:hover {
+  animation-play-state: running;
+}
+
+.sidebar.open {
+  translate: 0;
+  background: #1e1f26;
+}
+
+.sidebar.open ~ .sidebar-border {
+  opacity: 0;
+}
+
+.sidebar > img {
+  flex: 0 0 auto;
+  margin: 20px;
+}
+
+.create-label {
+  font-weight: 700;
+  font-size: 12px;
+  color: #868ca0;
+  margin: 0 20px 8px;
+}
+
+.create {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  margin: 0 20px 16px;
+  padding: 8px 0;
+  background: #2c303a;
+}
+
+.create::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    70deg,
+    rgb(14, 190, 255),
+    rgb(255, 221, 64),
+    rgb(174, 99, 228),
+    rgb(71, 207, 115)
+  );
+}
+
+.create-button {
+  height: 40px;
+  padding: 0 8px;
+}
+
+.create-button:first-child {
+  border-bottom: 1px solid #1e1f26;
+}
+
+.create-button span:first-child {
+  color: #717790;
+}
+
+.create-button span:nth-child(3) {
+  margin-left: auto;
+}
+
+.sidebar > nav > button {
+  height: 44px;
+  padding: 0 20px;
+}
+
+.sidebar-toggle {
+  position: absolute;
+  top: 20px;
+  right: -30px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  background: #4e5261;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  color: #f9f9f9;
+  font-size: 22px;
+}
